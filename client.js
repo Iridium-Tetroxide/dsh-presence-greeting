@@ -1,9 +1,9 @@
 window.__ModuleLoader__.load({
-  id: '@local/dsh-presence',
+  id: '@local/dsh-presence-greeting',
   factory(require) {
     const React = require('react')
     const h = React.createElement
-    const NS = 'dsh-presence'
+    const NS = 'dsh-presence-greeting'
 
     const zh = {
       nav: '在线状态',
@@ -276,14 +276,14 @@ window.__ModuleLoader__.load({
 .pg-notice.info{color:var(--dsw-alias-label-tertiary)}
 `
 
-    const styleId = 'dsh-presence/settings.css'
+    const styleId = 'dsh-presence-greeting/settings.css'
 
     function ensureStyles() {
       if (typeof document === 'undefined') return () => {}
       const existing = document.querySelector('style[data-plugin-css="' + styleId + '"]')
       if (existing) return () => {}
       const tag = document.createElement('style')
-      tag.dataset.plugin = 'dsh-presence'
+      tag.dataset.plugin = 'dsh-presence-greeting'
       tag.dataset.pluginCss = styleId
       tag.textContent = css
       document.head.appendChild(tag)
@@ -492,7 +492,7 @@ window.__ModuleLoader__.load({
 
       const loadState = React.useCallback(async (initial) => {
         try {
-          const response = await fetch('/dsh-presence/state', { cache: 'no-store' })
+          const response = await fetch('/dsh-presence-greeting/state', { cache: 'no-store' })
           const data = await response.json()
           setSnap(data)
           if (data && data.config && (initial || !loadedRef.current)) {
@@ -507,7 +507,7 @@ window.__ModuleLoader__.load({
       const loadSessions = React.useCallback(async () => {
         setSessionError(null)
         try {
-          const response = await fetch('/dsh-presence/sessions', { cache: 'no-store' })
+          const response = await fetch('/dsh-presence-greeting/sessions', { cache: 'no-store' })
           const data = await response.json()
           if (!data || data.ok !== true) throw new Error((data && data.error) || 'unknown error')
           setSessions({ items: data.sessions || [], workspaces: data.workspaces || [] })
@@ -544,7 +544,7 @@ window.__ModuleLoader__.load({
         setSaving(true)
         setNotice(null)
         try {
-          const response = await fetch('/dsh-presence/config', {
+          const response = await fetch('/dsh-presence-greeting/config', {
             method: 'POST',
             headers: { 'content-type': 'application/json; charset=utf-8' },
             body: JSON.stringify({ config: draft }),
@@ -564,7 +564,7 @@ window.__ModuleLoader__.load({
         setTesting(true)
         setNotice(null)
         try {
-          const response = await fetch('/dsh-presence/test-greeting', { method: 'POST' })
+          const response = await fetch('/dsh-presence-greeting/test-greeting', { method: 'POST' })
           const data = await response.json()
           if (!data || data.ok !== true) throw new Error((data && data.error) || 'unknown error')
           setNotice({ kind: 'ok', text: t('testSent') })
@@ -839,7 +839,7 @@ window.__ModuleLoader__.load({
       ctx.locale.register(NS, { zh, en })
       ctx.slots.inject('settings.section', () => ctx.slots.register({
         name: 'settings.section',
-        id: 'presence',
+        id: 'presence-greeting',
         order: 26,
         label: () => ctx.locale.bind(NS)('nav'),
         locale: NS,

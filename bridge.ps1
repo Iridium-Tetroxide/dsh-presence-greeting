@@ -1,4 +1,4 @@
-# Presence sensor + keyboard/mouse activity bridge for dsh-presence.
+# Presence sensor + keyboard/mouse activity bridge for dsh-presence-greeting.
 # Emits newline-delimited JSON on stdout. One tick every -IntervalMs.
 
 param(

@@ -1,4 +1,4 @@
-// dsh-presence — Host plugin.
+// dsh-presence-greeting — Host plugin.
 // Watches a Windows HID Sensor Collection V2 IR presence sensor (via the WinRT
 // HumanPresenceSensor API) and/or a normal webcam (face detection + face-size
 // distance estimate) plus mouse movement, derives an away/present state from
@@ -13,7 +13,7 @@ import { join } from 'node:path'
 
 export const inject = ['webServer']
 
-const ROUTE_PREFIX = '/dsh-presence'
+const ROUTE_PREFIX = '/dsh-presence-greeting'
 const BRIDGE_PATH = fileURLToPath(new URL('./bridge.ps1', import.meta.url))
 const CAMERA_PATH = fileURLToPath(new URL('./camera.py', import.meta.url))
 const PYDEP_DIR = fileURLToPath(new URL('./pydeps', import.meta.url))
@@ -334,7 +334,7 @@ export function apply(ctx, rawConfig) {
       const message = error instanceof Error ? error.message : String(error)
       state.lastError = message
       state.lastGreeting = { at: Date.now(), ok: false, reason, sessionId, error: message }
-      log.warn?.(`[presence] greeting failed: ${message}`)
+      log.warn?.(`[presence-greeting] greeting failed: ${message}`)
       return { ok: false, error: message }
     }
   }
@@ -772,7 +772,7 @@ export function apply(ctx, rawConfig) {
         } catch (error) {
           const message = error instanceof Error ? error.message : String(error)
           state.lastError = `保存配置失败：${message}`
-          log.warn?.(`[presence] config save failed: ${message}`)
+          log.warn?.(`[presence-greeting] config save failed: ${message}`)
         }
         return
       }
@@ -817,5 +817,5 @@ export function apply(ctx, rawConfig) {
       stopCamera()
       disposeRoutes()
     }
-  }, 'presence: runtime')
+  }, 'presence-greeting: runtime')
 }

@@ -1,4 +1,4 @@
-# dsh-presence
+# dsh-presence-greeting
 
 > 社区维护的第三方插件，与 DeepSeek AI 无隶属关系，也不是官方项目。
 
@@ -26,7 +26,7 @@ index.js (Host 插件)
 ├── camera.py    Python 子进程   → NDJSON：人脸框 + 估算距离
 ├── 判定引擎      证据状态机 away / present / hold / disabled / unavailable
 └── 问候          sessionController.prompt() 注入目标会话
-client.js (设置页)  ←同源 fetch→  /dsh-presence/{state,sessions,config,test-greeting}
+client.js (设置页)  ←同源 fetch→  /dsh-presence-greeting/{state,sessions,config,test-greeting}
 ```
 
 - PowerShell / Python 只负责采集原始数据，阈值、规则、滞回、问候都在 Host 侧计算，改配置不需要重启脚本。
@@ -38,16 +38,16 @@ client.js (设置页)  ←同源 fetch→  /dsh-presence/{state,sessions,config,
 ### 通过 DSH CLI 安装（推荐）
 
 ```bash
-dsh plugin --profile web add github:Iridium-Tetroxide/dsh-presence
+dsh plugin --profile web add github:Iridium-Tetroxide/dsh-presence-greeting
 ```
 
 如果这个包以后发布到了 npm，也可以直接用包名：
 
 ```bash
-dsh plugin --profile web add dsh-presence
+dsh plugin --profile web add dsh-presence-greeting
 ```
 
-仓库地址：https://github.com/Iridium-Tetroxide/dsh-presence
+仓库地址：https://github.com/Iridium-Tetroxide/dsh-presence-greeting
 
 ### 本地目录安装
 
@@ -104,10 +104,10 @@ Host 启动 `camera.py` 时按以下顺序找 Python，并把 `pydeps` 加进 `P
 
 | 方法 | 路径 | 说明 |
 | --- | --- | --- |
-| GET | `/dsh-presence/state` | 当前判定、各来源证据、传感器读数、键鼠空闲、采集进程、上次问候 |
-| GET | `/dsh-presence/sessions` | 可选会话（含名称）与工作区 |
-| POST | `/dsh-presence/config` | 保存配置（写入 profile 的 `cordis.patch.yml`） |
-| POST | `/dsh-presence/test-greeting` | 向当前选中会话试发一次问候 |
+| GET | `/dsh-presence-greeting/state` | 当前判定、各来源证据、传感器读数、键鼠空闲、采集进程、上次问候 |
+| GET | `/dsh-presence-greeting/sessions` | 可选会话（含名称）与工作区 |
+| POST | `/dsh-presence-greeting/config` | 保存配置（写入 profile 的 `cordis.patch.yml`） |
+| POST | `/dsh-presence-greeting/test-greeting` | 向当前选中会话试发一次问候 |
 
 ## 已知限制
 

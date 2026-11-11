@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Camera helper for dsh-presence: face detection + face-width distance estimate.
+"""Camera helper for dsh-presence-greeting: face detection + face-width distance estimate.
 
 Reads frames from a normal (RGB) webcam, detects the largest face, estimates
 its distance from the face width in pixels, and streams newline-delimited JSON

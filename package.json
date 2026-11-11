@@ -1,5 +1,5 @@
 {
-  "name": "@local/dsh-presence",
+  "name": "@local/dsh-presence-greeting",
   "version": "0.1.0",
   "license": "MIT",
   "private": true,

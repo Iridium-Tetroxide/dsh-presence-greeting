@@ -1,6 +1,6 @@
 - insert:
-    - id: dsh-presence
-      name: '@local/dsh-presence'
+    - id: dsh-presence-greeting
+      name: '@local/dsh-presence-greeting'
       config:
         sensorEnabled: true
         cameraEnabled: false
