@@ -1,5 +1,7 @@
 # dsh-presence
 
+> 社区维护的第三方插件，与 DeepSeek AI 无隶属关系，也不是官方项目。
+
 给 [DeepSeek Harness](https://github.com/deepseek-ai) 用的「在线状态」插件：判断你是不是坐在电脑前，并在你离开后回来时，按需在指定会话里自动发一条问候。
 
 判定来源有三种，可以任意组合：
@@ -32,6 +34,22 @@ client.js (设置页)  ←同源 fetch→  /dsh-presence/{state,sessions,config,
 - 问候通过 `sessionController.prompt` 注入，等价于用户在那个会话里发了一条普通消息，会话助手会自然回应。
 
 ## 安装
+
+### 通过 DSH CLI 安装（推荐）
+
+```bash
+dsh plugin --profile web add github:Iridium-Tetroxide/dsh-presence
+```
+
+如果这个包以后发布到了 npm，也可以直接用包名：
+
+```bash
+dsh plugin --profile web add dsh-presence
+```
+
+仓库地址：https://github.com/Iridium-Tetroxide/dsh-presence
+
+### 本地目录安装
 
 要求：Windows 10/11（HID 传感器与键鼠检测都依赖 Windows），DeepSeek Harness 带 `plugin_manager`。
 
@@ -113,6 +131,12 @@ locale/              插件标题与描述（en / zh）
 icon.svg             设置页图标
 requirements.txt     摄像头依赖
 ```
+
+## 关于
+
+- 这是一个社区插件，按 DeepSeek Harness Plugin 规范实现：Host 侧 `index.js` 导出 `apply(ctx)` 与 `inject`，Client 侧 `client.js` 通过 `dsh.client` 注册设置页。
+- 仓库 topic 标注为 `dsh-plugin`，便于插件目录扫描。
+- 与 DeepSeek AI 无隶属关系，不代表官方立场。
 
 ## 许可证
 
