@@ -1,0 +1,12 @@
+# 摄像头依赖，按 README 安装到 pydeps/
+pydeps/
+__pycache__/
+*.pyc
+
+# 通用
+node_modules/
+*.log
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

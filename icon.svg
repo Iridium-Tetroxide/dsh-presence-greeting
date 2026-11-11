@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Presence greeting">
+  <rect width="64" height="64" rx="14" fill="#141b24"/>
+  <circle cx="23" cy="21" r="6.5" fill="#6fe0bd"/>
+  <path d="M12 46c0-6.6 4.9-11.5 11-11.5S34 39.4 34 46" fill="none" stroke="#6fe0bd" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M41 18a15 15 0 0 1 0 17" fill="none" stroke="#5aa9ff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M47 13a22 22 0 0 1 0 27" fill="none" stroke="#5aa9ff" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+  <circle cx="51" cy="46" r="3.2" fill="#5aa9ff"/>
+</svg>

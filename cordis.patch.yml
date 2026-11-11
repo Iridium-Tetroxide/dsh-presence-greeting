@@ -1,0 +1,28 @@
+- insert:
+    - id: dsh-presence
+      name: '@local/dsh-presence'
+      config:
+        sensorEnabled: true
+        cameraEnabled: false
+        inputEnabled: true
+        sensorAwayDistanceCm: 200
+        sensorReturnDistanceCm: 100
+        cameraDevice: ''
+        cameraFaceWidthCm: 14
+        cameraFovDeg: 60
+        cameraAbsentSeconds: 12
+        inputAwayIdleSeconds: 600
+        inputReturnIdleSeconds: 0
+        awaySources:
+          - input
+          - sensor
+          - camera
+        returnSources:
+          - input
+          - sensor
+          - camera
+        greetingEnabled: true
+        greetingSessionId: ''
+        greetingText: ''
+        cooldownSeconds: 120
+        pollIntervalMs: 500
