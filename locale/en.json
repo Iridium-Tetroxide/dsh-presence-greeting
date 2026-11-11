@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Presence status",
+    "description": "Detects whether you are at the computer using a presence sensor, camera face distance, and keyboard/mouse activity, then greets you in a chosen session when you come back."
+  }
+}

@@ -140,4 +140,4 @@ requirements.txt     摄像头依赖
 
 ## 许可证
 
-本仓库暂未附带开源许可证。上传到 GitHub 前可按需要添加（例如 MIT、Apache-2.0）。
+[MIT](LICENSE) © 2026 Iridium-Tetroxide

@@ -1,6 +1,7 @@
 {
   "name": "@local/dsh-presence",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "description": "Presence detection from a Windows presence sensor, camera face distance, and keyboard/mouse idle time, with a greeting in a chosen session when you come back.",
   "keywords": [
